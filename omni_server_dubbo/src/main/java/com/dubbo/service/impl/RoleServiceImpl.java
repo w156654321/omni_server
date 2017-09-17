@@ -3,6 +3,7 @@ package com.dubbo.service.impl;
 import com.dubbo.mapper.URoleMapper;
 import com.dubbo.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import java.util.Set;
  */
 @Transactional
 @Service
+@Component("roleServiceImpl")
 public class RoleServiceImpl implements RoleService {
 
     @Autowired

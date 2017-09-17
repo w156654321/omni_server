@@ -182,11 +182,11 @@
             <artifactId>commons-fileupload</artifactId>
             <version>${commons-fileupload.version}</version>
         </dependency>
-        <dependency>
-            <groupId>fastdfs_client</groupId>
-            <artifactId>fastdfs_client</artifactId>
-            <version>${fastdfs_client.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>fastdfs_client</groupId>-->
+            <!--<artifactId>fastdfs_client</artifactId>-->
+            <!--<version>${fastdfs_client.version}</version>-->
+        <!--</dependency>-->
         <!-- Redis客户端 -->
         <dependency>
             <groupId>redis.clients</groupId>

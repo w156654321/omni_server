@@ -14,5 +14,7 @@
 
     <!--以下是暴露的接口-->
     <dubbo:service interface="com.dubbo.service.UserService" ref="userServiceImpl"/>
+    <dubbo:service interface="com.dubbo.service.RoleService" ref="roleServiceImpl"/>
+    <dubbo:service interface="com.dubbo.service.PermissionService" ref="permissionServiceImpl"/>
 
 </beans>
