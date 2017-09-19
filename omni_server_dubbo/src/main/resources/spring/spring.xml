@@ -10,4 +10,5 @@
     <import resource="applicationContext-dubbo.xml"/>
     <import resource="applicationContext-service.xml"/>
     <import resource="applicationContext-trans.xml"/>
+    <import resource="applicationContext-jedis.xml"/>
 </beans>
