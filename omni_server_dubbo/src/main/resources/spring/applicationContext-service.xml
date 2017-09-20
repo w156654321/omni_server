@@ -10,4 +10,5 @@
 
 	<!-- 包扫描，扫描带@service注解的类 -->
 	<context:component-scan base-package="com.dubbo.service"></context:component-scan>
+	<context:component-scan base-package="com.dubbo.mq"></context:component-scan>
 </beans>

@@ -3,6 +3,7 @@ package com.dubbo.service.impl;
 import com.dubbo.pojo.UUserExample;
 import com.dubbo.mapper.UUserMapper;
 import com.dubbo.pojo.UUser;
+import com.dubbo.redis.JedisClient;
 import com.dubbo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,8 @@ import java.util.List;
 @Component("userServiceImpl")
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    private JedisClient jedisClient;
     @Autowired
     private UUserMapper userMapper;
 
