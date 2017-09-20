@@ -12,7 +12,8 @@
     <dubbo:registry protocol="zookeeper" address="${zk.server}" group="${zk.group}" id="myGroup"/>
     <!-- 用dubbo协议在22880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="${zk.port}"/>
-    <dubbo:annotation package="com.dubbo.*" />
+    <dubbo:annotation package="com.dubbo.service.*" />
+    <dubbo:annotation package="com.dubbo.mq.*" />
     <!--以下是暴露的接口-->
     <dubbo:service interface="com.dubbo.service.UserService" ref="userServiceImpl"/>
     <dubbo:service interface="com.dubbo.service.RoleService" ref="roleServiceImpl"/>
