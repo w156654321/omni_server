@@ -4,6 +4,7 @@ import com.dubbo.pojo.UUserExample;
 import com.dubbo.mapper.UUserMapper;
 import com.dubbo.pojo.UUser;
 import com.dubbo.redis.JedisClient;
+import com.dubbo.redis.JedisClusterClient;
 import com.dubbo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,11 +22,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private JedisClient jedisClient;
+    private JedisClusterClient jedisClient;
     @Autowired
     private UUserMapper userMapper;
 
     public UUser getUserByName(String userName) {
+//        jedisClient.set("111","222");
         UUserExample example = new UUserExample();
         UUserExample.Criteria criteria = example.createCriteria();
         criteria.andEmailEqualTo(userName);
