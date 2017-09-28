@@ -11,6 +11,8 @@ public interface JedisClient {
 
 	public String set(byte[] key, byte[] value);
 
+	public String set(byte[] key, byte[] value, Integer expire);
+
 	public String hget(String hkey, String key);
 
 	public byte[] hget(byte[] hkey, byte[] key);

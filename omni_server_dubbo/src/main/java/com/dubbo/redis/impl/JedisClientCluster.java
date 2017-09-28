@@ -1,15 +1,18 @@
 package com.dubbo.redis.impl;
-import com.dubbo.redis.JedisClient;
+import com.dubbo.redis.JedisClusterClient;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPool;
+
+import java.util.Map;
 
 /**
  * redis集群
  * @author liudh  20160730
  *
  */
-public class JedisClientCluster implements JedisClient {
+public class JedisClientCluster implements JedisClusterClient {
 
 	@Autowired
 	private JedisCluster jedisCluster;
@@ -32,6 +35,11 @@ public class JedisClientCluster implements JedisClient {
 	@Override
 	public String set(byte[] key, byte[] value) {
 		return jedisCluster.set(key,value);
+	}
+
+	@Override
+	public String set(byte[] key, byte[] value, Integer expire) {
+		return jedisCluster.setex(key,expire,value);
 	}
 
 	@Override
@@ -89,4 +97,8 @@ public class JedisClientCluster implements JedisClient {
 		return jedisCluster.hdel(hkey,key);
 	}
 
+	@Override
+	public Map<String, JedisPool> getClusterNodes(){
+		return jedisCluster.getClusterNodes();
+	}
 }

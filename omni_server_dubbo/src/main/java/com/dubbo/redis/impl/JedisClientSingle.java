@@ -48,6 +48,14 @@ public class JedisClientSingle implements JedisClient {
 		return result;
 	}
 
+	@Override
+	public String set(byte[] key, byte[] value, Integer expire) {
+		Jedis jedis = jedisPool.getResource();
+		String result = jedis.setex(key,expire,value);
+		jedis.close();
+		return result;
+	}
+
 
 	@Override
 	public String hget(String hkey, String key) {
