@@ -24,12 +24,30 @@ public class JedisClientSingle implements JedisClient {
 	}
 
 	@Override
+	public byte[] get(byte[] key) {
+		Jedis jedis = jedisPool.getResource();
+		byte[] result = jedis.get(key);
+		jedis.close();
+		return result;
+	}
+
+
+	@Override
 	public String set(String key, String value) {
 		Jedis jedis = jedisPool.getResource();
 		String result = jedis.set(key, value);
 		jedis.close();
 		return result;
 	}
+
+	@Override
+	public String set(byte[] key, byte[] value) {
+		Jedis jedis = jedisPool.getResource();
+		String result = jedis.set(key, value);
+		jedis.close();
+		return result;
+	}
+
 
 	@Override
 	public String hget(String hkey, String key) {
@@ -40,7 +58,24 @@ public class JedisClientSingle implements JedisClient {
 	}
 
 	@Override
+	public byte[] hget(byte[] hkey, byte[] key) {
+		Jedis jedis = jedisPool.getResource();
+		byte[] result = jedis.hget(hkey,key);
+		jedis.close();
+		return result;
+	}
+
+
+	@Override
 	public long hset(String hkey, String key, String value) {
+		Jedis jedis = jedisPool.getResource();
+		Long result = jedis.hset(hkey,key,value);
+		jedis.close();
+		return result;
+	}
+
+	@Override
+	public long hset(byte[] hkey, byte[] key, byte[] value) {
 		Jedis jedis = jedisPool.getResource();
 		Long result = jedis.hset(hkey,key,value);
 		jedis.close();
@@ -86,5 +121,22 @@ public class JedisClientSingle implements JedisClient {
 		jedis.close();
 		return result;
 	}
+
+	@Override
+	public long del(byte[] key) {
+		Jedis jedis = jedisPool.getResource();
+		Long result = jedis.del(key);
+		jedis.close();
+		return result;
+	}
+
+	@Override
+	public long hdel(byte[] hkey,byte[] key) {
+		Jedis jedis = jedisPool.getResource();
+		Long result = jedis.hdel(hkey,key);
+		jedis.close();
+		return result;
+	}
+
 
 }

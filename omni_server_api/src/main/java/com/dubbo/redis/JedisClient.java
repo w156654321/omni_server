@@ -4,12 +4,20 @@ public interface JedisClient {
 
 
 	public String get(String key);
+
+	public byte[] get(byte[] key);
 	
 	public String set(String key, String value);
-	
+
+	public String set(byte[] key, byte[] value);
+
 	public String hget(String hkey, String key);
-	
+
+	public byte[] hget(byte[] hkey, byte[] key);
+
 	public long hset(String hkey, String key, String value);
+
+	public long hset(byte[] hkey, byte[] key, byte[] value);
 	/**
 	 * 自增
 	 * @param key
@@ -29,8 +37,13 @@ public interface JedisClient {
 	 * @return
 	 */
 	public long ttl(String key);
-	
+
 	public long del(String key);
-	
+
+	public long del(byte[] key);
+
 	public long hdel(String hkey, String key);
+
+	public long hdel(byte[] hkey,byte[] key);
+
 }
